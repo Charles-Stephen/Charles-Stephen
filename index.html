@@ -576,38 +576,7 @@
                         </div>
                     </form>
 
-                    <!-- Add this Script tag right before your closing </body> tag -->
-                    <script>
-                    function sendToWhatsApp(event) {
-                        // 1. Stop the page from reloading when clicking submit
-                        event.preventDefault();
-
-                        // 2. Fetch all values from your form fields
-                        const name = document.getElementById('name').value;
-                        const email = document.getElementById('email').value;
-                        const subject = document.getElementById('subject').value;
-                        const message = document.getElementById('message').value;
-
-                        // 3. Put your WhatsApp number here (Include country code, NO spaces, NO plus sign)
-                        // Example for Pakistan (+92): "923XXXXXXXXX"
-                        const myWhatsAppNumber = "+923343427289"; 
-
-                        // 4. Construct a beautifully formatted message text
-                        const textPayload = `*New Portfolio Message!*%0A`
-                                        + `------------------------%0A`
-                                        + `👤 *Name:* ${encodeURIComponent(name)}%0A`
-                                        + `✉️ *Email:* ${encodeURIComponent(email)}%0A`
-                                        + `📌 *Subject:* ${encodeURIComponent(subject)}%0A`
-                                        + `💬 *Message:* ${encodeURIComponent(message)}`;
-
-                        // 5. Create the official WhatsApp click-to-chat API URL (CORRECTED)
-                        const whatsappUrl = `https://whatsapp.com{myWhatsAppNumber}&text=${textPayload}`;
-
-                        // 6. Redirect the user instantly to WhatsApp in a separate browser tab
-                        window.open(whatsappUrl, '_blank').focus();
-
-                    }
-                    </script>
+                    
 
                 </div>
             </div>
@@ -667,6 +636,39 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Add this Script tag right before your closing </body> tag -->
+    <script>
+    function sendToWhatsApp(event) {
+        // 1. Stop the page from reloading when clicking submit
+        event.preventDefault();
+
+        // 2. Fetch all values from your form fields
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // 3. Put your WhatsApp number here (Include country code, NO spaces, NO plus sign)
+        // Example for Pakistan (+92): "923XXXXXXXXX"
+        const myWhatsAppNumber = "+923343427289"; 
+
+        // 4. Construct a beautifully formatted message text
+        const textPayload = `*New Portfolio Message!*%0A`
+                        + `------------------------%0A`
+                        + `👤 *Name:* ${encodeURIComponent(name)}%0A`
+                        + `✉️ *Email:* ${encodeURIComponent(email)}%0A`
+                        + `📌 *Subject:* ${encodeURIComponent(subject)}%0A`
+                        + `💬 *Message:* ${encodeURIComponent(message)}`;
+
+        // 5. Create the official WhatsApp click-to-chat API URL (CORRECTED)
+        const whatsappUrl = `https://whatsapp.com{myWhatsAppNumber}&text=${textPayload}`;
+
+        // 6. Redirect the user instantly to WhatsApp in a separate browser tab
+        window.open(whatsappUrl, '_blank').focus();
+
+    }
+    </script>
 </body>
 
 </html>
